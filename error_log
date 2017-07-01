@@ -1,0 +1,215 @@
+[30-Jul-2016 12:16:23 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/hrms/storage/framework/views/7f5bd1b91f2d3cd9845b4422dbce712a4baa1772.php on line 111
+[30-Jul-2016 12:20:17 UTC] PHP Parse error:  syntax error, unexpected ';' in /home/logitrek/public_html/hrms/storage/framework/views/7f5bd1b91f2d3cd9845b4422dbce712a4baa1772.php on line 118
+[02-Aug-2016 12:38:13 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:38:46 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:39:29 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:40:30 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:41:13 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:42:04 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:42:06 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:42:39 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[02-Aug-2016 12:43:53 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/EmployeeSalaryController.php on line 1
+[04-Aug-2016 06:55:57 UTC] PHP Fatal error:  Call to a member function delete() on a non-object in /home/logitrek/public_html/hrms/app/Http/Controllers/DesignationMasterController.php on line 77
+[04-Aug-2016 10:15:47 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:15:54 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:15:55 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:10 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:10 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:11 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:11 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:11 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:48 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:48 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:16:48 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:18:28 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateTime' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 56
+[04-Aug-2016 10:19:47 UTC] PHP Fatal error:  Class 'App\Http\Controllers\DateInterval' not found in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanyHolidayMasterController.php on line 58
+[06-Aug-2016 07:47:38 UTC] PHP Parse error:  syntax error, unexpected '$objAttendanceMaster' (T_VARIABLE) in /home/logitrek/public_html/hrms/app/Http/Controllers/AttendanceController.php on line 130
+[06-Aug-2016 07:55:50 UTC] PHP Parse error:  syntax error, unexpected 'App' (T_STRING) in /home/logitrek/public_html/hrms/app/Http/Controllers/CompanySettingController.php on line 1
+[06-Aug-2016 08:09:16 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/logitrek/public_html/hrms/app/Http/Controllers/AttendanceController.php on line 131
+[06-Aug-2016 08:09:16 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/logitrek/public_html/hrms/app/Http/Controllers/AttendanceController.php on line 131
+[06-Aug-2016 08:09:33 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/logitrek/public_html/hrms/app/Http/Controllers/AttendanceController.php on line 131
+[06-Aug-2016 09:35:05 UTC] PHP Parse error:  syntax error, unexpected '$year' (T_VARIABLE) in /home/logitrek/public_html/hrms/app/Http/Controllers/AttendenceMasterController.php on line 58
+[11-Nov-2016 11:09:15 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/foody/app/Http/Controllers/HomeController.php on line 44
+[11-Nov-2016 13:35:22 UTC] PHP Fatal error:  Cannot redeclare App\Http\Controllers\WebServicesController::forgotPassword() in /home/logitrek/public_html/foody/app/Http/Controllers/WebServicesController.php on line 510
+[11-Nov-2016 13:47:05 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Auth\Auth' not found in /home/logitrek/public_html/foody/app/Http/Controllers/Auth/AuthController.php on line 63
+[11-Nov-2016 13:47:55 UTC] PHP Fatal error:  Cannot use Illuminate\Support\Facades\Validator as Validator because the name is already in use in /home/logitrek/public_html/foody/app/Http/Controllers/Auth/AuthController.php on line 9
+[12-Nov-2016 10:54:03 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting function (T_FUNCTION) in /home/logitrek/public_html/foody/app/Http/Controllers/WebServicesController.php on line 471
+[12-Nov-2016 10:54:48 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/foody/app/Http/Controllers/WebServicesController.php on line 885
+[25-Nov-2016 06:46:12 UTC] PHP Fatal error:  Class 'App\Category' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 634
+[25-Nov-2016 06:46:16 UTC] PHP Fatal error:  Class 'App\Category' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 634
+[25-Nov-2016 06:46:19 UTC] PHP Fatal error:  Class 'App\Category' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 634
+[25-Nov-2016 06:48:09 UTC] PHP Fatal error:  Class 'App\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/HomeController.php on line 45
+[25-Nov-2016 06:48:46 UTC] PHP Fatal error:  Class 'App\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/HomeController.php on line 45
+[25-Nov-2016 06:49:26 UTC] PHP Fatal error:  Class 'App\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/HomeController.php on line 45
+[25-Nov-2016 06:51:26 UTC] PHP Fatal error:  Class 'App\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/HomeController.php on line 45
+[25-Nov-2016 06:51:31 UTC] PHP Fatal error:  Class 'App\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/HomeController.php on line 45
+[25-Nov-2016 07:39:03 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/CustomerController.php on line 65
+[25-Nov-2016 07:40:15 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/CustomerController.php on line 65
+[25-Nov-2016 08:56:32 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/CustomerController.php on line 65
+[30-Nov-2016 13:11:50 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/OrderController.php on line 164
+[30-Nov-2016 13:12:06 UTC] PHP Parse error:  syntax error, unexpected '.' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/OrderController.php on line 164
+[30-Nov-2016 13:43:57 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/OrderController.php on line 146
+[30-Nov-2016 13:44:16 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR) in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/OrderController.php on line 162
+[01-Dec-2016 10:14:19 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/OrderController.php on line 47
+[01-Dec-2016 11:01:48 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/CustomerController.php on line 65
+[01-Dec-2016 11:15:03 UTC] PHP Fatal error:  Call to undefined function App\Http\Controllers\checkNull() in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1048
+[01-Dec-2016 11:18:41 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/CustomerController.php on line 65
+[02-Dec-2016 07:32:25 UTC] PHP Parse error:  syntax error, unexpected 'if' (T_IF) in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 157
+[08-Dec-2016 09:04:58 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:01 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:03 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:18 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:20 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:20 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:21 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:21 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:22 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:23 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:05:24 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:28 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:28 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:31 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:32 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:35 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:43 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:07:53 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:08:10 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:08:13 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:08:14 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:08:22 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[08-Dec-2016 09:08:29 UTC] PHP Parse error:  syntax error, unexpected '*' in /home/logitrek/public_html/hotel_oceanview/app/Http/Controllers/WebServicesController.php on line 1122
+[13-Dec-2016 08:41:44 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 08:44:22 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 09:42:45 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 09:43:17 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 09:43:40 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 09:44:23 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[13-Dec-2016 09:45:34 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[15-Dec-2016 12:53:39 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/MenuItemController.php on line 226
+[16-Dec-2016 10:15:56 UTC] PHP Parse error:  syntax error, unexpected '$day' (T_VARIABLE) in /home/logitrek/public_html/gandharva/app/Http/Controllers/HomeController.php on line 53
+[16-Dec-2016 10:17:37 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/2ba75683511dd63fc64864df8cf62d13dbab7dbe.php on line 84
+[17-Dec-2016 06:08:55 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Validator' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/HomeController.php on line 92
+[17-Dec-2016 06:09:35 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Validator' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/HomeController.php on line 92
+[17-Dec-2016 06:24:41 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[17-Dec-2016 06:26:53 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[17-Dec-2016 06:27:43 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[17-Dec-2016 09:58:54 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[17-Dec-2016 09:59:39 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Order' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CustomerController.php on line 65
+[17-Dec-2016 10:29:34 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:29:43 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:30:22 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:30:29 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:30:36 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:30:49 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:31:04 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:31:19 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:31:28 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:31:42 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:31:52 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:32:15 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:33:03 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:33:08 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:33:57 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[17-Dec-2016 10:33:59 UTC] PHP Parse error:  syntax error, unexpected 'strtotime' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 638
+[20-Dec-2016 09:25:40 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 09:25:43 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 09:25:46 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 09:25:47 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 09:25:50 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 09:26:01 UTC] PHP Parse error:  syntax error, unexpected '=>' (T_DOUBLE_ARROW) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 1238
+[20-Dec-2016 13:24:51 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/f17a1e01bb5d612c054bae95ee94d62603123150.php on line 139
+[21-Dec-2016 11:17:42 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:44 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:53 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:54 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:54 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:54 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:54 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:17:55 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:18:03 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:18:03 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 11:18:03 UTC] PHP Parse error:  syntax error, unexpected '<' in /home/logitrek/public_html/gandharva/storage/framework/views/2ff97dded8379a52edf6f69d38ff05f0ca791274.php on line 55
+[21-Dec-2016 14:53:48 UTC] PHP Parse error:  syntax error, unexpected '::' (T_PAAMAYIM_NEKUDOTAYIM) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 278
+[23-Dec-2016 06:54:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/437b8dff85ef62a14083ad9d09dc93461d13f193.php on line 425
+[29-Dec-2016 11:23:35 UTC] PHP Fatal error:  Class 'App\Coupons' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CouponsController.php on line 33
+[29-Dec-2016 11:32:05 UTC] PHP Fatal error:  Class 'App\Coupons' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CouponsController.php on line 33
+[29-Dec-2016 11:32:09 UTC] PHP Fatal error:  Class 'App\Coupons' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CouponsController.php on line 33
+[29-Dec-2016 11:39:13 UTC] PHP Fatal error:  Class 'App\Coupons' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CouponsController.php on line 33
+[29-Dec-2016 11:47:55 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Coupons' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/CuponesController.php on line 33
+[29-Dec-2016 11:49:20 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/app/Http/Controllers/CuponesController.php on line 80
+[31-Dec-2016 10:40:59 UTC] PHP Parse error:  syntax error, unexpected 'leftJoin' (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/CuponesController.php on line 230
+[31-Dec-2016 10:57:22 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/1de386e302c1f580623f3848153468a484e12867.php on line 53
+[31-Dec-2016 10:57:45 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/1de386e302c1f580623f3848153468a484e12867.php on line 53
+[31-Dec-2016 10:58:19 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/1de386e302c1f580623f3848153468a484e12867.php on line 53
+[31-Dec-2016 13:29:55 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:29:57 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:31:05 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:31:07 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:31:33 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:31:39 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[31-Dec-2016 13:31:41 UTC] PHP Parse error:  syntax error, unexpected ''users.contact1'' (T_CONSTANT_ENCAPSED_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 171
+[02-Jan-2017 07:17:03 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/logitrek/public_html/gandharva/storage/framework/views/707c8707764b3dfc3c44fa37ad7b8fa07a6206f4.php on line 50
+[02-Jan-2017 07:17:14 UTC] PHP Parse error:  syntax error, unexpected '}' in /home/logitrek/public_html/gandharva/storage/framework/views/707c8707764b3dfc3c44fa37ad7b8fa07a6206f4.php on line 50
+[02-Jan-2017 07:37:34 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/logitrek/public_html/gandharva/app/Http/Controllers/DeliveryBoyReportsController.php on line 69
+[02-Jan-2017 07:37:45 UTC] PHP Parse error:  syntax error, unexpected ',' in /home/logitrek/public_html/gandharva/app/Http/Controllers/DeliveryBoyReportsController.php on line 69
+[02-Jan-2017 08:12:40 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 132
+[02-Jan-2017 08:15:16 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 132
+[02-Jan-2017 08:17:38 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 132
+[02-Jan-2017 08:18:00 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 132
+[02-Jan-2017 08:18:44 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 133
+[02-Jan-2017 08:22:10 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 133
+[02-Jan-2017 09:05:11 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 133
+[02-Jan-2017 09:10:09 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 133
+[02-Jan-2017 09:40:02 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting identifier (T_STRING) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 422
+[03-Jan-2017 10:49:17 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 213
+[03-Jan-2017 10:49:20 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 213
+[03-Jan-2017 10:49:25 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 213
+[03-Jan-2017 10:49:31 UTC] PHP Parse error:  syntax error, unexpected '->' (T_OBJECT_OPERATOR), expecting identifier (T_STRING) or variable (T_VARIABLE) or '{' or '$' in /home/logitrek/public_html/gandharva/app/Http/Controllers/OrderController.php on line 213
+[03-Jan-2017 11:34:17 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:34:23 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:34:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:34:30 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:34:30 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:34:55 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:35:12 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:35:14 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:35:15 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:35:15 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:35:15 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 41
+[03-Jan-2017 11:36:29 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 42
+[03-Jan-2017 11:36:42 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 42
+[03-Jan-2017 11:36:43 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 42
+[03-Jan-2017 11:36:44 UTC] PHP Parse error:  syntax error, unexpected end of file in /home/logitrek/public_html/gandharva/storage/framework/views/0d1d4be156579adef9b2d40b0bfe3776b1b3c0a9.php on line 42
+[03-Jan-2017 12:19:07 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:19:11 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:20:52 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:20:55 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:03 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:09 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:14 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:19 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:29 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:38 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:45 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:23:56 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:24:08 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:24:26 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:24:31 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:24:37 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:25:00 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[03-Jan-2017 12:25:12 UTC] PHP Parse error:  syntax error, unexpected ''succe' (T_ENCAPSED_AND_WHITESPACE), expecting ']' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 225
+[04-Jan-2017 10:36:46 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting variable (T_VARIABLE) or ${ (T_DOLLAR_OPEN_CURLY_BRACES) or {$ (T_CURLY_OPEN) in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 386
+[06-Jan-2017 09:40:36 UTC] PHP Parse error:  syntax error, unexpected '$arr_order' (T_VARIABLE) in /home/logitrek/public_html/gandharva/storage/framework/views/00dc4c82cc8ce8c045b518b362411e76e3ca44bf.php on line 39
+[06-Jan-2017 09:40:39 UTC] PHP Parse error:  syntax error, unexpected '$arr_order' (T_VARIABLE) in /home/logitrek/public_html/gandharva/storage/framework/views/00dc4c82cc8ce8c045b518b362411e76e3ca44bf.php on line 39
+[06-Jan-2017 09:40:40 UTC] PHP Parse error:  syntax error, unexpected '$arr_order' (T_VARIABLE) in /home/logitrek/public_html/gandharva/storage/framework/views/00dc4c82cc8ce8c045b518b362411e76e3ca44bf.php on line 39
+[09-Jan-2017 09:20:04 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:05 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:07 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:10 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:12 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:17 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:18 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:19 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:20 UTC] PHP Parse error:  syntax error, unexpected ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 672
+[09-Jan-2017 09:20:22 UTC] PHP Parse error:  syntax error, unexpected end of file, expecting ')' in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 82
+[09-Jan-2017 09:48:19 UTC] PHP Fatal error:  Class 'App\Http\Controllers\Users' not found in /home/logitrek/public_html/gandharva/app/Http/Controllers/WebServicesController.php on line 674
