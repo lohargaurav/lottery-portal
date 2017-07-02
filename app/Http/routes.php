@@ -19,9 +19,20 @@ Route::post('forgotpassword', 'HomeController@postForgotPassword');
 Route::get('register_franchisee', 'HomeController@registerFranchisee');
 Route::post('add_franchisee', 'HomeController@registerFranchiseeSave');
 
+//API WEBSERVICES
+Route::get('getToken', 'UserController@getToken');
+Route::get('franchiseeList', 'UserController@franchiseeList');
+Route::post('registerCustomer', 'UserController@registerCustomer');
+Route::post('loginCustomer', 'UserController@loginCustomer');
+Route::get('getCurrentSystemTime', 'UserController@getCurrentSystemTime');
+Route::post('lockFinaleBetting', 'UserController@postBattingItems');
+Route::post('bettingOver', 'UserController@bettingOver');
+	
 
+//Admin and Franchisee Logins Route Methods
 Route::group(['middleware' => ['auth', 'validateBackHistory']], function () {
-    Route::auth();
+    
+	Route::auth();
     Route::get('/home', 'HomeController@index');
     Route::post('reset_password', 'HomeController@postResetPassword');
 	#ADMIN
@@ -44,6 +55,5 @@ Route::group(['middleware' => ['auth', 'validateBackHistory']], function () {
 	Route::get('rejectCreditsRequest/{id}', 'FranchiseeController@rejectCreditsRequest');
 	Route::get('approveCreditsRequest/{id}', 'FranchiseeController@approveCreditsRequest');
 	Route::get('franchiseeCreditRequestsToAdmin', 'FranchiseeController@listRequestsToAdmin');
-	
-	
+		
 });

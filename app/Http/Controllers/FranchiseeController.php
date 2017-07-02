@@ -33,7 +33,7 @@ class FranchiseeController extends Controller {
 	//Display All Users
     public function index() { 
 	
-		$usersLists = Users::join('user_credits','user_credits.user_id','=','user.id')->where('role_id','=',env('FRANCHISEE'))->where('isAdmin','!=', env('ISADMIN'))->where('isDeleted','=', env('NOTDELETED'))->orderBy('name', 'asc')->get();
+		$usersLists = Users::select('user.id', 'user.name', 'user.email', 'user.mobile', 'user.address','user.approved_by_admin', 'user.approved_by_franchisee', 'user.isDeleted', 'user_credits.points' )->join('user_credits','user_credits.user_id','=','user.id')->where('user.role_id','=',env('FRANCHISEE'))->where('user.isAdmin','!=', env('ISADMIN'))->where('user.isDeleted','=', env('NOTDELETED'))->orderBy('user.name', 'asc')->get();
 		
 		return view('admin.user.index',compact('usersLists'));
     }

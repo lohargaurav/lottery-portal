@@ -13,7 +13,7 @@
 						@if($objUser->id != Auth::user()->id)
 						<div class="icon-button-demo pull-right">
 							<button type="button" data-toggle="modal" data-target="#defaultAddModal" title="Add Points" class="btn btn-success btn-md waves-effect waves-float" >
-								Transfer Points to Franchisee
+								Transfer Points to @if(Auth::user()->isAdmin==env('ISADMIN')) Franchisee @else Customer @endif
 							</button>
 						</div>
 						@endif

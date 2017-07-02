@@ -65,12 +65,12 @@
                             <label for="rememberme">Remember Me</label>
                         </div>
                         <div class="col-xs-4">
-                            <button class="btn btn-block bg-pink waves-effect" id="btnLogin"  type="button">SIGN IN</button>
+                            <button class="btn btn-block bg-green waves-effect" id="btnLogin"  type="button">SIGN IN</button>
                         </div>
                     </div>
                     <div class="row m-t-15 m-b--20">
                         <div class="col-xs-6">
-                             <button type="button" data-toggle="modal" data-target="#defaultAddModal" title="Sign up" class="btn btn-success btn-md waves-effect waves-float "  >
+                             <button type="button" data-toggle="modal" data-target="#defaultAddModal" title="Sign up" class="btn btn-block bg-cyan waves-effect waves-float "  >
 								Sign up
 							</button>
                         </div>
