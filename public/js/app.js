@@ -186,6 +186,15 @@ $(document).on("click", '.js-sweetalert', function () {
 						
 						}
 					});
+		}else if(type === 'success'){
+			$.ajax({
+			type: "GET",
+			url: aurl,
+			success: function (response) {
+				swal("Success", response.message, "success");
+				$(".confirm_ok").attr('id','btnOk');
+				}
+			});
 		}
 });
 //FORGOT PASSWORD

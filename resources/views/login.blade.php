@@ -103,8 +103,8 @@
 							<label for="address">Address</label>
 							<div class="form-group">
 								<div class="form-line">
-									<textarea id="address" class="form-control" placeholder="Enter address" name="address" required>
-									</textarea>
+									
+									<textarea rows="2" class="form-control no-resize" id="address" name="address"  placeholder="Enter your address" required></textarea>
 								</div>
 							</div> 
 							
@@ -183,7 +183,7 @@
 				</div>
 				<div class="modal-footer">
 					
-					<button type="button" class="btn btn-md btn-success waves-effect add_data" id="btnAdd" data-url="add_franchisee" data-frmid="#frmAddData" data-modalname="#defaultAddModal">SAVE</button>
+					<button type="button" class="btn btn-md btn-success waves-effect add_data" id="btnAdd" data-url="{{URL::to('add_franchisee')}}" data-frmid="#frmAddData" data-modalname="#defaultAddModal">SAVE</button>
 					<button type="button" class="btn btn-md  btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
 		
 				</div> 

@@ -4,10 +4,7 @@ namespace App\Helpers;
 
 class Helper {
 
-    public static function full_name($first_name,$last_name) {
-        return $first_name . ', '. $last_name;   
-    }
-	
+   
 	public static function encode($value){ 
 	  if(!$value){return false;}
 	  $text = $value;

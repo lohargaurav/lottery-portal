@@ -12,16 +12,19 @@ use App\Http\Requests\UserLoginRequest;
 use App\Http\Traits\UserTrait;
 use App\User;
 use App\Users;
+use App\User_Credits;
+use App\User_Credits_History;
+use App\User_Credits_Request;
 use DB;
 use Helper;
 use Carbon\Carbon;
 
 class CommonController extends Controller {
-	
+	private $loggedUser;
     public function __construct() {
 		
         $this->middleware('auth');
-		//$obj = new Commodity_Master;
+		$this->loggedUser = Auth::user()->id;
     }
     
 	//User updateStatus 
@@ -60,10 +63,10 @@ class CommonController extends Controller {
 
 	public function updateUserProfile(Request $request){
 				$objValidation = Validator::make($request->all(), [
-				'user_id' => 'required',
-				'fullname' => 'required',
+				'user_id' => 'required|numeric',
+				'fullname' => 'required|alpha_dash',
 				'address' => 'required', 
-				'mobile' => 'required', 
+				'mobile' => 'required|numeric', 
 				//'profile_image' => 'required',				
 
             ]);
@@ -128,4 +131,73 @@ class CommonController extends Controller {
 		}
 
 	}
+	
+	public function updateCredits($id){
+		
+		$id = Helper::decode($id);
+		
+		$objCreditsHistory = User_Credits_History::where("user_id", $id)->orderBy('created_date', 'desc')->get();
+		
+		$objCredits = User_Credits::where("user_id",$id)->first();
+		$objUser = User::find($id);		
+		return view('admin.credits.view', compact('objCreditsHistory', 'objCredits', 'objUser'));
+	}
+	
+	public function doUpdateCredits(request $request){
+		$objValidation = Validator::make($request->all(), [
+				'user_id' => 'required|numeric',
+				'credit_points' => 'required|numeric',
+            ]);
+			
+		if ($objValidation->fails()) {
+			$errors = $objValidation->errors();
+			return response()->json($errors, 422);
+		} else {
+			
+			$pointsReciever = User::find($request->user_id);
+			$pointsTransferer = User::find($this->loggedUser);
+			
+			//Debit points from user balance
+			$objSave = new User_Credits_History;
+			$objSave->user_id = $this->loggedUser;
+			$objSave->points_amt = $request->credit_points;
+			$objSave->type = env('DEBIT');
+			$objSave->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+			$objSave->transaction_desc = "Points transfered to ".$pointsReciever->name;
+			$objSave->created_date =  Carbon::now();	
+			$objSave->save();
+			
+			$objSaveCredits = User_Credits::find($this->loggedUser);
+			$objSaveCredits->points = $objSaveCredits->points - $request->credit_points;
+			$objSaveCredits->update_date =  Carbon::now();			
+			$objSaveCredits->save();
+			
+			//Credit points to user
+			$objSaveUser = new User_Credits_History;
+			$objSaveUser->user_id = $request->user_id;
+			$objSaveUser->points_amt = $request->credit_points;
+			$objSaveUser->type = env('CREDIT');
+			$objSaveUser->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+			$objSaveUser->transaction_desc = "Points transfered from ".$pointsTransferer->name;
+			$objSaveUser->created_date =  Carbon::now();	
+			$objSaveUser->save();
+			
+			$objSaveCreditsUser = User_Credits::find($request->user_id);
+			$objSaveCreditsUser->points = $objSaveCreditsUser->points + $request->credit_points;
+			$objSaveCreditsUser->update_date =  Carbon::now();			
+			$objSaveCreditsUser->save();
+			return Response::json(['message' => 'Credit points added successfully']);		
+		}
+	}
+	
+	public function transactions(){
+		$id = $this->loggedUser;
+		$objCreditsHistory = User_Credits_History::where("user_id", $id)->orderBy('created_date', 'desc')->get();
+		
+		$objCredits = User_Credits::where("user_id",$id)->first();
+		$objUser = User::find($id);		
+		return view('admin.credits.view', compact('objCreditsHistory', 'objCredits', 'objUser'));
+	}
+	
+	
 }

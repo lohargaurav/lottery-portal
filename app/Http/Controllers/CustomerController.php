@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserLoginRequest;
 use App\Users;
+use App\User_Credits;
 use Session;
 use Hash;
 use DateTimeZone;
@@ -24,7 +25,7 @@ class CustomerController extends Controller {
 	
 	//Display All Users
     public function index() { 
-		$usersLists = Users::where('role_id','=',env('USER'))->where('isAdmin','!=', env('ISADMIN'))->where('isDeleted','=', env('NOTDELETED'))->get();
+		$usersLists = Users::where('role_id','=',env('USER'))->where('isAdmin','!=', env('ISADMIN'))->where('isDeleted','=', env('NOTDELETED'))->orderBy('name', 'asc')->get();
 	
 		return view('admin.user.index',compact('usersLists'));
     }

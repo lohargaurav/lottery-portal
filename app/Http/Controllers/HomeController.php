@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserLoginRequest;
 use App\User;
+use App\User_Credits;
 use Session;
 use Hash;
 use DB;
@@ -50,6 +51,7 @@ class HomeController extends Controller {
 		if (count($ObjUserCheck) != 0) { 
 			
 			if (Auth::attempt($user)) {
+				
 				return Response::json(['msg_status' => 'valid']);
 			} else {
 				return Response::json(['modal_title' => 'Some thing went wrong', 'message' => 'Invalid Credential', 'msg_status' => 'invalid']);
@@ -119,10 +121,6 @@ class HomeController extends Controller {
 				}
 	}
 	
-	/*public function registerFranchisee(){
-		return view('admin.register.index');
-	}*/
-	
 	public function registerFranchiseeSave(Request $request){
 		
 		$objValidation = Validator::make($request->all(), [
@@ -138,7 +136,7 @@ class HomeController extends Controller {
 				'accountName' => 'required',
 				'accountNumber' => 'required|min:16', 
 				'bankName' => 'required', 
-				'bankIFSC' => 'required', 
+				'bankIFSC' => 'required|alpha_num', 
             ]);
 			
 		if ($objValidation->fails()) {
@@ -176,7 +174,39 @@ class HomeController extends Controller {
 			$objSave->created_date =  Carbon::now();			
 			$objSave->save();
 			
+			//New record in user credits table
+			$objSaveCredits = new User_Credits;
+			$objSaveCredits->user_id = $objSave->id;
+			$objSaveCredits->points = 0;
+			$objSaveCredits->created_date =  Carbon::now();			
+			$objSaveCredits->save();
+			
+			
 			return Response::json(['message' => 'Franchisee registered Please contact admin for approval']);		
 		}
+	}
+	
+	public static function credits($id){
+		
+		$data = User_Credits::where("user_id",$id)->first();
+		if(isset($data))
+		{
+			return $data->points; 
+		}else{
+			//New record in user credits table
+			$objSaveCredits = new User_Credits;
+			$objSaveCredits->user_id = $id;
+			$objSaveCredits->points = 0;
+			$objSaveCredits->created_date =  Carbon::now();			
+			$objSaveCredits->save();
+			
+			return 0;
+		}
+	}
+	
+	public static function getAdminId()
+	{
+		$data = User::where("isAdmin",env('ISADMIN'))->first();
+		return $data->id;
 	}
 }

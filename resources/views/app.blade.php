@@ -123,6 +123,7 @@
 						{{Auth::user()->name}}
 					</div>
                     <div class="email">{{Auth::user()->email}}</div>
+                    <div class="clear"></div>						
                     <div class="btn-group user-helper-dropdown">
                         <i class="material-icons" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">keyboard_arrow_down</i>
                         <ul class="dropdown-menu pull-right">
@@ -149,34 +150,64 @@
             <!-- Menu -->
             <div class="menu">
                 <ul class="list">
-                    <li class="header">MAIN NAVIGATION</li>
+					
+									
+					<li>
+						<a href="javascript:void(0);">
+							 <i class="material-icons">monetization_on</i> 
+							 <span>
+							<?php 
+								use App\Http\Controllers\HomeController;
+								echo HomeController::credits(Auth::user()->id); 
+							?> Points
+							</span>
+						</a>
+					</li>
+					
+					<li class="header">MAIN NAVIGATION</li>
                     <li @if(Request::url() == URL::to('/home')) class="active" @endif>
                         <a href="{{URL::to('/home')}}">
                             <i class="material-icons">home</i>
                             <span>Home</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="javascript:void(0);" class="menu-toggle">
-                            <i class="material-icons">assignment</i>
-                            <span>Manage User</span>
+                    
+					@if(Auth::user()->isAdmin)
+					<li @if(Request::url() == URL::to('/franchisee')) class="active" @endif>
+                        <a href="{{URL::to('/franchisee')}}">
+                            <i class="material-icons">people</i>
+                            <span>Manage Franchisee</span>
                         </a>
-						@if(Auth::user()->isAdmin)
-                        <ul class="ml-menu">
-                            <li @if(Request::url() == URL::to('franchisee')) class="active" @endif>
-                                <a href="{{URL::to('franchisee')}}">Franchisee</a>
-                            </li>                            
-                        </ul>
-						@else
-						<ul class="ml-menu">
-                            <li @if(Request::url() == URL::to('customer')) class="active" @endif>
-                                <a href="{{URL::to('customer')}}">Customer</a>
-                            </li>                            
-                        </ul>
-						@endif
                     </li>
- 
-                </ul>
+					<li @if(Request::url() == URL::to('/franchiseeCreditRequests')) class="active" @endif>
+                        <a href="{{URL::to('/franchiseeCreditRequests')}}">
+                            <i class="material-icons">plus_one</i>
+                            <span>Manage Requests</span>
+                        </a>
+                    </li>
+					
+					@else
+					<li @if(Request::url() == URL::to('/customer')) class="active" @endif>
+                        <a href="{{URL::to('/customer')}}">
+                            <i class="material-icons">assignment</i>
+                            <span>Manage Customer</span>
+                        </a>
+                    </li>
+					<li @if(Request::url() == URL::to('/franchiseeCreditRequestsToAdmin')) class="active" @endif>
+                        <a href="{{URL::to('/franchiseeCreditRequestsToAdmin')}}">
+                            <i class="material-icons">plus_one</i>
+                            <span>Manage Requests</span>
+                        </a>
+                    </li>
+					@endif
+						
+					<li @if(Request::url() == URL::to('/transactions')) class="active" @endif>
+                        <a href="{{URL::to('/transactions')}}">
+                            <i class="material-icons">list</i>
+                            <span>My Transactions</span>
+                        </a>
+                    </li>
+				</ul>
             </div>
             <!-- #Menu -->
             <!-- Footer -->
@@ -259,9 +290,10 @@
 							<label for="address">Address</label>
 							<div class="form-group form-group1">
 								<div class="form-line">
-									<textarea id="address" class="form-control" placeholder="Enter address" name="address" required>
+									<textarea rows="2" class="form-control no-resize" id="address" name="address"  placeholder="Enter address" required>
 										{{Auth::user()->address}}
 									</textarea>
+									
 								</div>
 							</div>
 						</div>
