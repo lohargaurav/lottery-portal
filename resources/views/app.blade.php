@@ -193,12 +193,21 @@
                             <span>Manage Customer</span>
                         </a>
                     </li>
-					<li @if(Request::url() == URL::to('/franchiseeCreditRequestsToAdmin')) class="active" @endif>
-                        <a href="{{URL::to('/franchiseeCreditRequestsToAdmin')}}">
+					
+					<li>
+                        <a href="javascript:void(0);" @if(Request::url() == URL::to('/franchiseeCreditRequestsToAdmin') || Request::url() == URL::to('/customerCreditRequestsToFranchisee')) class="menu-toggle toggled" @else class="menu-toggle"  @endif>
                             <i class="material-icons">plus_one</i>
                             <span>Manage Requests</span>
                         </a>
-                    </li>
+                        <ul class="ml-menu">
+							<li @if(Request::url() == URL::to('/franchiseeCreditRequestsToAdmin')) class="active" @endif>
+                                <a href="{{URL::to('/franchiseeCreditRequestsToAdmin')}}">My Credit Requests</a>
+                            </li>
+                            <li @if(Request::url() == URL::to('/customerCreditRequestsToFranchisee')) class="active" @endif>
+                                <a href="{{URL::to('/customerCreditRequestsToFranchisee')}}">Customer Requests</a>
+                            </li>
+						</ul>
+					</li>
 					@endif
 						
 					<li @if(Request::url() == URL::to('/transactions')) class="active" @endif>
@@ -516,7 +525,108 @@
 	}); 
 
     </script>
+	
+	
+	<script type="text/javascript" >
 
+		$( document ).ready(function() {
+			getData();
+			
+			var interval = 1000;
+			
+			setInterval(function(){
+				
+				
+				
+				var percantage = Math.round(interval/15000*100);
+				
+				if(percantage>60){
+					$("#progressbarDiv").removeClass('progress-bar-success').addClass('progress-bar-warning');
+				}else{
+					$("#progressbarDiv").removeClass('progress-bar-warning').addClass('progress-bar-success');
+				}
+				
+				$("#progressbarDiv").css('width', percantage+'%');
+				$("#progressbarDiv").attr('aria-valuenow', percantage);
+				interval= interval + 1000;
+				
+				if(interval>15000){
+					
+					interval=0;
+					getData();
+				}
+			}, 1000);
+			 
+		});
+		
+			
+		
+		
+		function getData(){
+			 $.ajax({
+				type: "GET",
+				url: "dashboardContent",
+				dataType: "json", 
+				success: function (msg) {
+					//var msg = $.parseJSON(response);
+					 
+					if(msg.status==200){
+						
+						var recentWinnerHtml ='';
+						var currentBattingHtml ='';
+						var gainerHtml='';
+						
+						if(Object.keys(msg.data.recentWinner).length){
+							
+							$.each( msg.data.recentWinner, function( key, value ) {
+							  recentWinnerHtml += '<li>'+ value.item_name + '</li>';
+							   
+							});
+							
+						}else{
+							recentWinnerHtml = '<li>No Record Found</li>';
+						}
+						 
+						$('#recentWinnerDiv').html(recentWinnerHtml);
+						
+						if(Object.keys(msg.data.currentCollection).length){
+							
+							$.each( msg.data.currentCollection, function( key, value ) {
+							  currentBattingHtml += '<li>'+ value.item + '<span class="pull-right"><b>'+ value.total_points + '</b> <small>POINTS</small></span></li>';
+							    
+							});
+							
+						}else{
+							currentBattingHtml = '<li>No Record Found</li>';
+						}
+						$('#currentBattingDiv').html(currentBattingHtml);
+						
+						if(Object.keys(msg.data.topListing).length){
+							
+							$.each( msg.data.topListing, function( key, value ) {
+							  
+							 gainerHtml += '<tr><td>'+ ++key +'</td><td>'+ value.name +'</td><td>'+ value.address +'</td><td>'+ value.mobile +'</td><td><span class="label bg-green">'+ value.total_points +' POINTS</span></td></tr>';										
+							   
+							});
+							
+						} 
+						
+						$('#gainerDiv').html(gainerHtml);
+						
+					}
+				},
+				error: function (response)
+				{
+				   var errors = $.parseJSON(response.responseText);
+					resetModalFormErrors();
+					associate_errors(errors, $form);
+				}
+			});
+			
+		}
+		
+		
+	</script>
 	
 </body>
 

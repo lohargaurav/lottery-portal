@@ -14,6 +14,7 @@ use App\User;
 use App\User_Credits;
 use App\User_Credits_Request;
 use App\User_Credits_History;
+use App\Franchisee_Customer_Map;
 use Session;
 use Hash;
 use DateTimeZone;
@@ -60,7 +61,12 @@ class FranchiseeController extends Controller {
 	}
 	
 	public function listRequests(){
-		$objRequests = User_Credits_Request::select('user_credits_request.id', 'user.name', 'user_credits_request.requested_points','user_credits_request.isDelivered')->join('user', 'user.id','=','user_credits_request.user_id')->where('isRejected','=', env('NOTDELETED'))->orderBy('user_credits_request.created_date', 'desc')->get();
+		$objRequests = User_Credits_Request::select('user_credits_request.id', 'user.name', 'user_credits_request.requested_points','user_credits_request.isDelivered')
+		->join('user', 'user.id','=','user_credits_request.user_id')
+		->where('user.role_id','=', env('FRANCHISEE'))
+		->where('isRejected','=', env('NOTDELETED'))
+		->orderBy('user_credits_request.created_date', 'desc')
+		->get();
 		
 		return view('admin.request.index',compact('objRequests'));
 	}
@@ -124,4 +130,15 @@ class FranchiseeController extends Controller {
 		return view('admin.request.view',compact('objRequests'));
 	}
 	
+	public function listRequestsByCustomers(){
+		
+		$objRequests = User_Credits_Request::select('user_credits_request.id', 'user.name', 'user_credits_request.requested_points','user_credits_request.isDelivered')
+		->join('user', 'user.id','=','user_credits_request.user_id')
+		->join('franchisee_customer_map', 'user.id','=','franchisee_customer_map.customer_id')
+		->where('franchisee_customer_map.franchisee_id','=', $this->loggedUser)
+		->where('isRejected','=', env('NOTDELETED'))
+		->orderBy('user_credits_request.created_date', 'desc')->get();
+		
+		return view('admin.request.index',compact('objRequests'));
+	}
 }

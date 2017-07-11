@@ -199,5 +199,35 @@ class CommonController extends Controller {
 		return view('admin.credits.view', compact('objCreditsHistory', 'objCredits', 'objUser'));
 	}
 	
+	public function doUpdateCreditsOwn(request $request){
+			$objValidation = Validator::make($request->all(), [
+				'user_id' => 'required|numeric',
+				'credit_points' => 'required|numeric',
+            ]);
+			
+		if ($objValidation->fails()) {
+			$errors = $objValidation->errors();
+			return response()->json($errors, 422);
+		} else {
+			
+			$pointsReciever = User::find($request->user_id);
+			
+			//Credit points to user
+			$objSaveUser = new User_Credits_History;
+			$objSaveUser->user_id = $request->user_id;
+			$objSaveUser->points_amt = $request->credit_points;
+			$objSaveUser->type = env('CREDIT');
+			$objSaveUser->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+			$objSaveUser->transaction_desc = "Points added by own";
+			$objSaveUser->created_date =  Carbon::now();	
+			$objSaveUser->save();
+			
+			$objSaveCreditsUser = User_Credits::find($request->user_id);
+			$objSaveCreditsUser->points = $objSaveCreditsUser->points + $request->credit_points;
+			$objSaveCreditsUser->update_date =  Carbon::now();			
+			$objSaveCreditsUser->save();
+			return Response::json(['message' => 'Credit points added successfully']);		
+		}
+	}
 	
 }

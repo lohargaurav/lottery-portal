@@ -8,7 +8,11 @@
 				<div class="card">
 					<div class="header ">
 						<h2 class="pull-left">
-							Franchisees Points Requests
+							@if(Auth::user()->isAdmin!=env('ISADMIN'))
+								Customer Points Requests
+							@else
+								Franchisees Points Requests
+							@endif
 						</h2>
 						<br>
 					</div>

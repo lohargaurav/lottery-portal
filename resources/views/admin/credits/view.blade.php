@@ -10,6 +10,17 @@
 						<h2 class="pull-left">
 							Credits History: 
 						</h2>
+						<!-- Admin add points for own-->
+						
+						@if(Auth::user()->isAdmin==env('ISADMIN'))
+						<div class="icon-button-demo pull-right">
+							<button type="button" data-toggle="modal" data-target="#defaultAddOwnModal" title="Add Points" class="btn btn-success btn-md waves-effect waves-float" >
+								Add points to own Account
+							</button>
+						</div>
+						@endif
+						
+						<!-- Transfer points to Franchisee/Customer-->
 						@if($objUser->id != Auth::user()->id)
 						<div class="icon-button-demo pull-right">
 							<button type="button" data-toggle="modal" data-target="#defaultAddModal" title="Add Points" class="btn btn-success btn-md waves-effect waves-float" >
@@ -172,5 +183,35 @@
 	</div>
 </div>
  
+<!-- Add  to Own account -->
+<div class="modal fade" id="defaultAddOwnModal" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h4 class="modal-title" id="defaultModalLabel">Add Points</h4>
+			</div>
+			<div class="modal-body">
+				<form name="frmAddOwnModal" id="frmAddOwnModal" enctype="multipart/form-data">
+					<input type="hidden" name="_token" value="{{{ csrf_token() }}}" />
+					<input type="hidden" name="user_id" value="{{{ Auth::user()->id }}}" />
+					 
+					<div class="col-sm-12">
+						<label for="credit_points">Ponits Amount</label>
+						<div class="form-group">
+							<div class="form-line">
+								<input type="text" id="credit_points" name="credit_points" class="form-control" placeholder="Enter Amount" >
+							</div>
+						</div>
+					</div>
+					
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-md btn-success waves-effect add_data" id="btnAdd" data-url="{{URL::to('credits_addToOwn')}}" data-frmid="#frmAddOwnModal" data-modalname="#defaultAddOwnModal">SAVE</button>
+				<button type="button" class="btn btn-md  btn-danger waves-effect" data-dismiss="modal">CLOSE</button>
+			</div> 
+		</div>
+	</div>
+</div>
 @endsection 
 

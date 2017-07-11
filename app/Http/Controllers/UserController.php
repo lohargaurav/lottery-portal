@@ -18,6 +18,7 @@ use App\Franchisee_Customer_Map;
 use App\Betting_Winner_Item;
 use App\Master_Items;
 use App\Betting_Current;
+use App\Betting_History;
 use Session;
 use Hash;
 use DateTimeZone;
@@ -139,7 +140,7 @@ class UserController extends Controller {
 				{
 					$data = array(
 						"currentSystemTime"=> date("H:i:s"),
-						"recentWinningItems" => $this->recentWinninhItems(),
+						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($ObjUser->id),
 						"userData"=> array(
 							"user_id"=> $ObjUser->id,
@@ -166,7 +167,7 @@ class UserController extends Controller {
 				
 	}
 	
-	public function recentWinninhItems(){
+	public function recentWinningItems(){
 		
 		$data =  Master_Items::select('Master_Items.item_name')
 					->join('Betting_Winner_Item','Betting_Winner_Item.item_id','=','Master_Items.id')
@@ -243,7 +244,7 @@ class UserController extends Controller {
 			return Response::json(["status"=>200, 
 						"message" => "Betting locked successfully.",
 						"currentSystemTime"=> date("H:i:s"),
-						"recentWinningItems" => $this->recentWinninhItems(),
+						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($request->user_id)
 					]);	
 		}
@@ -320,10 +321,98 @@ class UserController extends Controller {
 			return Response::json(["status"=>200, 
 							"message" => "Betting completed successfully.",
 						"currentSystemTime"=> date("H:i:s"),
-						"recentWinningItems" => $this->recentWinninhItems(),
+						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($request->user_id)
 					]);	
 		}
+	}
+	
+	public function requestCredits(request $request){
+		
+		$objValidation = Validator::make($request->all(), [
+				'user_id' => 'required|numeric',
+				'credit_points' => 'required|numeric',
+            ]);
+			
+		if ($objValidation->fails()) {
+			$errors = $objValidation->errors();
+			
+			return Response::json(["status"=>400, 
+							"message" => $errors,
+					]);	
+					
+		} else {
+			
+			$checkRecordExists = User::where('id','=',$request->user_id)
+				->where('isAdmin','!=', env('ISADMIN'))
+				->where('role_id','=',env('USER'))
+				->where('approved_by_franchisee','=', env('APROVED'))
+				->where('isDeleted','=', env('NOTDELETED'))
+				->count();
+					
+			if($checkRecordExists==1){
+				//Debit points from user balance
+				$objSave = new User_Credits_Request;
+				$objSave->user_id = $request->user_id;
+				$objSave->requested_points = $request->credit_points;			
+				$objSave->created_date =  Carbon::now();	
+				$objSave->save();
+				
+				return Response::json(["status"=>200, 
+							"message" => 'Credit points request submitted successfully',
+					]);
+			}else{
+				return Response::json(["status"=>400, 
+							"message" => 'Provided Customer not exists in system',
+					]);
+			}
+			
+		}
+	}
+	
+	public function dashboardContent(){
+		
+		$collection = array();
+		$collection['recentWinner'] = $this->recentWinningItems();
+		 
+		$currentCollection = Betting_Current::select(DB::raw('(SELECT `item_name` FROM `jos_master_items` WHERE `id`= `jos_betting_current`.`item_id` AND `status`='.env('ACTIVE').') as item'),  DB::raw('IFNULL(SUM(points),0) as total_points'))
+			->groupBy('item_id')
+			->get();
+			
+		$collection['currentCollection'] = $currentCollection;
+		 
+		if(Auth::user()->isAdmin){
+			$topListing = Users::select('user.name', 'user.mobile', 'user.address', DB::raw('(SELECT IFNULL(SUM(`bh`.`points`),0) FROM `jos_betting_history` as `bh`
+			INNER JOIN  `jos_franchisee_customer_map` AS `fcm` ON `bh`.`user_id`=`fcm`.`customer_id` 
+			WHERE `fcm`.`franchisee_id` = `jos_user`.`id`) AS total_points')) 
+			->where('user.role_id','=',env('FRANCHISEE'))
+			->where('user.isAdmin','!=', env('ISADMIN'))
+			->where('user.isDeleted','=', env('NOTDELETED'))
+			->orderBy('total_points', 'desc')
+			->orderBy('user.name', 'asc')
+			->limit(10)		
+			->get();
+			
+			
+		}else{
+			$topListing = Users::select('user.name', 'user.mobile', 'user.address', DB::raw('(SELECT IFNULL(SUM(`bh`.`points`),0) FROM `jos_betting_history` as `bh`
+			WHERE `bh`.`user_id` = `jos_user`.`id`) AS total_points')) 
+			->join('franchisee_customer_map', 'franchisee_customer_map.customer_id','=','user.id')
+			
+			->where('franchisee_customer_map.franchisee_id','=',Auth::user()->id)
+			->where('user.role_id','=',env('USER'))
+			->where('user.isAdmin','!=', env('ISADMIN'))
+			->where('user.isDeleted','=', env('NOTDELETED'))
+			->orderBy('total_points', 'desc')
+			->orderBy('user.name', 'asc')
+			->limit(10)		
+			->get();
+		}
+		$collection['topListing'] = $topListing;
+		return Response::json(["status"=>200, 
+							"message" => 'Record found',
+							"data"=> $collection
+					]);
 	}
 }
 	
