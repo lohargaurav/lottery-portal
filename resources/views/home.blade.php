@@ -40,6 +40,7 @@
                 </div>
                 <!-- #END# Visitors -->
                 <!-- Answered Tickets -->
+				@if(Auth::user()->isAdmin==env('ISADMIN'))
                 <div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
                     <div class="card">
                         <div class="body bg-teal">
@@ -54,6 +55,7 @@
                         </div>
                     </div>
                 </div>
+				@endif
                 <!-- #END# Answered Tickets -->
             </div>
 

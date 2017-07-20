@@ -19,6 +19,7 @@ use App\Betting_Winner_Item;
 use App\Master_Items;
 use App\Betting_Current;
 use App\Betting_History;
+use App\Time_instance;
 use Session;
 use Hash;
 use DateTimeZone;
@@ -138,8 +139,20 @@ class UserController extends Controller {
 				
 				if($ObjUser->approved_by_franchisee == env('ACTIVE'))
 				{
+					$objSaveTime = Time_instance::find(1);		
+					$timeSecond = strtotime(Carbon::now());
+					$timeFirst = strtotime($objSaveTime->current_instance);
+					$differenceInSeconds = $timeSecond - $timeFirst;
+					
+					if($differenceInSeconds>90){
+						$objSaveTime->current_instance = Carbon::now();	
+						$objSaveTime->updated_by =  Carbon::now();			
+						$objSaveTime->save();
+						$differenceInSeconds = 1;
+					}		
+					
 					$data = array(
-						"currentSystemTime"=> date("H:i:s"),
+						"currentSystemTime"=> $differenceInSeconds,
 						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($ObjUser->id),
 						"userData"=> array(
@@ -182,9 +195,21 @@ class UserController extends Controller {
 		return $data->points;
 	}
 	
-	public function getCurrentSystemTime(){
+	public function getCurrentSystemTime(){		
+						
+		$objSaveTime = Time_instance::find(1);		
+		$timeSecond = strtotime(Carbon::now());
+		$timeFirst = strtotime($objSaveTime->current_instance);
+		$differenceInSeconds = $timeSecond - $timeFirst;
 		
-		return Response::json(['status'=>200,'currentSystemTime' => date("H:i:s")]);
+		if($differenceInSeconds>90){
+			$objSaveTime->current_instance = Carbon::now();	
+			$objSaveTime->updated_by =  Carbon::now();			
+			$objSaveTime->save();
+			$differenceInSeconds = 1;
+		}		
+					
+		return Response::json(['status'=>200,'currentSystemTime' => $differenceInSeconds]);
 	}
 	
 	public function postBattingItems(request $request){
@@ -241,9 +266,21 @@ class UserController extends Controller {
 				}
 			}
 			
+			$objSaveTime = Time_instance::find(1);		
+			$timeSecond = strtotime(Carbon::now());
+			$timeFirst = strtotime($objSaveTime->current_instance);
+			$differenceInSeconds = $timeSecond - $timeFirst;
+			
+			if($differenceInSeconds>90){
+				$objSaveTime->current_instance = Carbon::now();	
+				$objSaveTime->updated_by =  Carbon::now();			
+				$objSaveTime->save();
+				$differenceInSeconds = 1;
+			}	
+			
 			return Response::json(["status"=>200, 
 						"message" => "Betting locked successfully.",
-						"currentSystemTime"=> date("H:i:s"),
+						"currentSystemTime"=> $differenceInSeconds,
 						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($request->user_id)
 					]);	
@@ -270,13 +307,36 @@ class UserController extends Controller {
 			$errors = $objValidation->errors();			
 			return Response::json(['status'=>400,'message' => $errors]);	
 		} else {
-			$bet = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
+			//Define winner
+			$getTotalBettingAmount = Betting_Current::select(DB::raw('SUM(points) as total_points'))
+					->limit(1)
+					->first();
+			
+			$searchValue  = $getTotalBettingAmount->total_points*80/100;
+			
+			$bets = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
 					->groupBy('item_id')
 					->orderBy('total_points', 'asc')
+					->get();
+					
+			$closest = null;
+			$closestItem = null;
+		    foreach ($bets as $item) {
+				$returnValue = $item->total_points * 11;
+				if ($closest === null || abs($searchValue - $closest) > abs($returnValue - $searchValue)) {
+					$closest = $returnValue;
+					$closestItem = $item->item_id;
+				}
+		    }
+		   
+			$closest =  $closest/11;
+			
+			$bet = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
+					->where('item_id','=', $closestItem)
+					->groupBy('item_id')
 					->limit(1)
 					->first();
 					
-			//print_r($bet); die;
 			
 			$max = DB::table('betting_winner_item')->max('id');
 			
@@ -297,19 +357,25 @@ class UserController extends Controller {
 			$getCurrentBettings = Betting_Current::select('user_id','item_id','points')
 						->where('user_id','=', $request->user_id)
 						->get();
-			$collection = array();
-			
+			$collection = array();		
+				
 			foreach($getCurrentBettings as $getCurrentBetting)		
 			{
-				$insert = array(
-					'user_id'=>  $getCurrentBetting->user_id,
-					'item'=>  $this->getItemName($getCurrentBetting->item_id),
-					'item_id'=>  $getCurrentBetting->item_id,
-					'points'=>  $getCurrentBetting->points,
-					'betSlot'=> "BTTSLT-$max",
-					'created_date'=> Carbon::now(),
-				);
-				array_push($collection, $insert);
+				$lastSlot = Betting_history::where('user_id', '=', $getCurrentBetting->user_id)
+					->where('betSlot', '=', "BTTSLT-$max")					
+					->count();
+				
+				if( $lastSlot==0 ){
+					$insert = array(
+						'user_id'=>  $getCurrentBetting->user_id,
+						'item'=>  $this->getItemName($getCurrentBetting->item_id),
+						'item_id'=>  $getCurrentBetting->item_id,
+						'points'=>  $getCurrentBetting->points,
+						'betSlot'=> "BTTSLT-$max",
+						'created_date'=> Carbon::now(),
+					);
+					array_push($collection, $insert);
+				}
 			}
 			if(!empty($collection)){
 				
@@ -318,9 +384,21 @@ class UserController extends Controller {
 			
 			Betting_Current::where('user_id', '=', $request->user_id)->delete();
 			
+			$objSaveTime = Time_instance::find(1);		
+			$timeSecond = strtotime(Carbon::now());
+			$timeFirst = strtotime($objSaveTime->current_instance);
+			$differenceInSeconds = $timeSecond - $timeFirst;
+			
+			if($differenceInSeconds>90){
+				$objSaveTime->current_instance = Carbon::now();	
+				$objSaveTime->updated_by =  Carbon::now();			
+				$objSaveTime->save();
+				$differenceInSeconds = 1;
+			}	
+			
 			return Response::json(["status"=>200, 
-							"message" => "Betting completed successfully.",
-						"currentSystemTime"=> date("H:i:s"),
+						"message" => "Betting completed successfully.",
+						"currentSystemTime"=> $differenceInSeconds,
 						"recentWinningItems" => $this->recentWinningItems(),
 						"points"=> $this->userPoints($request->user_id)
 					]);	
