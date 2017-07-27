@@ -182,9 +182,9 @@ class UserController extends Controller {
 	
 	public function recentWinningItems(){
 		
-		$data =  Master_Items::select('Master_Items.item_name')
-					->join('Betting_Winner_Item','Betting_Winner_Item.item_id','=','Master_Items.id')
-					->orderBy('Betting_Winner_Item.id', 'desc')
+		$data =  Master_Items::select('master_items.item_name')
+					->join('betting_winner_item','betting_winner_item.item_id','=','master_items.id')
+					->orderBy('betting_winner_item.id', 'desc')
 					->limit(5)
 					->get();
 		return $data;
@@ -307,82 +307,6 @@ class UserController extends Controller {
 			$errors = $objValidation->errors();			
 			return Response::json(['status'=>400,'message' => $errors]);	
 		} else {
-			//Define winner
-			$getTotalBettingAmount = Betting_Current::select(DB::raw('SUM(points) as total_points'))
-					->limit(1)
-					->first();
-			
-			$searchValue  = $getTotalBettingAmount->total_points*80/100;
-			
-			$bets = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
-					->groupBy('item_id')
-					->orderBy('total_points', 'asc')
-					->get();
-					
-			$closest = null;
-			$closestItem = null;
-		    foreach ($bets as $item) {
-				$returnValue = $item->total_points * 11;
-				if ($closest === null || abs($searchValue - $closest) > abs($returnValue - $searchValue)) {
-					$closest = $returnValue;
-					$closestItem = $item->item_id;
-				}
-		    }
-		   
-			$closest =  $closest/11;
-			
-			$bet = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
-					->where('item_id','=', $closestItem)
-					->groupBy('item_id')
-					->limit(1)
-					->first();
-					
-			
-			$max = DB::table('betting_winner_item')->max('id');
-			
-			$max = (empty($max))?0:$max;
-			
-			$checkRecordExists = Betting_Winner_Item::where('betSlot','=', "BTTSLT-$max")
-					->where('item_id','=', $bet->item_id )
-					->count();
-
-			if($checkRecordExists==0){
-				$saveObj = new Betting_Winner_Item;
-				$saveObj->item_id = $bet->item_id;
-				$saveObj->created_date = Carbon::now();
-				$saveObj->betSlot = "BTTSLT-$max";			
-				$saveObj->save();
-			}
-			
-			$getCurrentBettings = Betting_Current::select('user_id','item_id','points')
-						->where('user_id','=', $request->user_id)
-						->get();
-			$collection = array();		
-				
-			foreach($getCurrentBettings as $getCurrentBetting)		
-			{
-				$lastSlot = Betting_history::where('user_id', '=', $getCurrentBetting->user_id)
-					->where('betSlot', '=', "BTTSLT-$max")					
-					->count();
-				
-				if( $lastSlot==0 ){
-					$insert = array(
-						'user_id'=>  $getCurrentBetting->user_id,
-						'item'=>  $this->getItemName($getCurrentBetting->item_id),
-						'item_id'=>  $getCurrentBetting->item_id,
-						'points'=>  $getCurrentBetting->points,
-						'betSlot'=> "BTTSLT-$max",
-						'created_date'=> Carbon::now(),
-					);
-					array_push($collection, $insert);
-				}
-			}
-			if(!empty($collection)){
-				
-				DB::table('betting_history')->insert($collection);
-			}
-			
-			Betting_Current::where('user_id', '=', $request->user_id)->delete();
 			
 			$objSaveTime = Time_instance::find(1);		
 			$timeSecond = strtotime(Carbon::now());
@@ -491,6 +415,188 @@ class UserController extends Controller {
 							"message" => 'Record found',
 							"data"=> $collection
 					]);
+	}
+	
+	public function cronBettingWinner(){
+		
+		$objSaveTime = Time_instance::find(1);		
+		$timeSecond = strtotime(Carbon::now());
+		$timeFirst = strtotime($objSaveTime->current_instance);
+		$differenceInSeconds = $timeSecond - $timeFirst;
+		
+		if($differenceInSeconds>90){
+			
+			$objSaveTime->current_instance = Carbon::now();	
+			$objSaveTime->updated_by =  Carbon::now();			
+			$objSaveTime->save();
+			$differenceInSeconds = 1;
+		
+			//Define winner
+			$getTotalBettingAmount = Betting_Current::select(DB::raw('SUM(points) as total_points'))
+					->limit(1)
+					->first();
+			
+			$searchValue  = $getTotalBettingAmount->total_points*80/100;
+			
+			$bets = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
+					->groupBy('item_id')
+					->orderBy('total_points', 'asc')
+					->get();
+					
+			$closest = null;
+			$closestItem = null;
+		    foreach ($bets as $item) {
+				
+				if($item->item_id==13){
+					$returnValue = $item->total_points * 22;
+					if ($closest === null || abs($searchValue - $closest) > abs($returnValue - $searchValue)) {
+						$closest = $returnValue;
+						$closestItem = $item->item_id;
+					}
+				}else{
+					$returnValue = $item->total_points * 11;
+					if ($closest === null || abs($searchValue - $closest) > abs($returnValue - $searchValue)) {
+						$closest = $returnValue;
+						$closestItem = $item->item_id;
+					}
+				}
+		    }
+		   
+			if($closestItem==13){
+				$closest =  $closest/22;
+			}else{
+				$closest =  $closest/11;
+			}
+			
+			
+			$bet = Betting_Current::select('item_id', DB::raw('SUM(points) as total_points'))
+					->where('item_id','=', $closestItem)
+					->groupBy('item_id')
+					->limit(1)
+					->first();
+					
+			
+			$max = DB::table('betting_winner_item')->max('id');
+			
+			$max = (empty($max))?0:$max;
+			
+			$checkRecordExists = Betting_Winner_Item::where('betSlot','=', "BTTSLT-$max")
+					->where('item_id','=', $bet->item_id )
+					->count();
+
+			if($checkRecordExists==0){
+				$saveObj = new Betting_Winner_Item;
+				$saveObj->item_id = $bet->item_id;
+				$saveObj->created_date = Carbon::now();
+				$saveObj->betSlot = "BTTSLT-$max";			
+				$saveObj->save();
+			}
+			
+			$getCurrentBettings = Betting_Current::select('user_id','item_id','points')
+						->get();
+			$collection = array();		
+				
+			foreach($getCurrentBettings as $getCurrentBetting)		
+			{
+				
+				$insert = array(
+					'user_id'=>  $getCurrentBetting->user_id,
+					'item'=>  $this->getItemName($getCurrentBetting->item_id),
+					'item_id'=>  $getCurrentBetting->item_id,
+					'points'=>  $getCurrentBetting->points,
+					'betSlot'=> "BTTSLT-$max",
+					'created_date'=> Carbon::now(),
+				);
+				array_push($collection, $insert);
+			
+			}
+			if(!empty($collection)){
+				
+				DB::table('betting_history')->insert($collection);
+			}
+			
+			//Add profit to franchisee//Credit points to user
+			$franchiseeBettings = Betting_Current::select('franchisee_customer_map.franchisee_id', DB::raw('SUM(points) as total_points'))
+						->join('franchisee_customer_map','franchisee_customer_map.customer_id','=','betting_current.user_id')
+						->groupBy('franchisee_customer_map.franchisee_id')
+						->get();
+						
+			foreach($franchiseeBettings as $franchiseeBetting){
+				$objSaveUser = new User_Credits_History;
+				$objSaveUser->user_id = $franchiseeBetting->franchisee_id;				
+				$objSaveUser->points_amt = $franchiseeBetting->total_points ;				
+				$objSaveUser->type = env('CREDIT');
+				$objSaveUser->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+				$objSaveUser->transaction_desc = "Total bettings points transfered for BTTSLT-$max";
+				$objSaveUser->created_date =  Carbon::now();	
+				$objSaveUser->save();
+				
+				$objSaveCreditsUser = User_Credits::find($franchiseeBetting->franchisee_id);
+				$objSaveCreditsUser->points = $objSaveCreditsUser->points + $franchiseeBetting->total_points ;			
+				$objSaveCreditsUser->update_date =  Carbon::now();			
+				$objSaveCreditsUser->save();
+			}
+			
+			
+			//Add credits to winner users
+			$winnerUsers = Betting_Current::select('user_id','item_id','points')
+						->where('item_id','=',$bet->item_id)
+						->get();
+
+			foreach($winnerUsers as $winnerUser){				
+				
+				$pointsReciever = User::find($winnerUser->user_id);
+				
+				$franchisee = Franchisee_Customer_Map::where('customer_id','=',$winnerUser->user_id)->first();
+				
+				$pointsTransferer = User::find($franchisee->franchisee_id);
+			
+				if($winnerUser->item_id==13){
+					$credit_points = $winnerUser->points*22;
+				}else{
+					$credit_points = $winnerUser->points*11;
+				}
+				
+				//Debit points from user balance
+				$objSave = new User_Credits_History;
+				$objSave->user_id = $pointsTransferer->id;
+				$objSave->points_amt = $credit_points;
+				$objSave->type = env('DEBIT');
+				$objSave->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+				$objSave->transaction_desc = "Winning Points transfered to ".$pointsReciever->name;
+				$objSave->created_date =  Carbon::now();	
+				$objSave->save();
+				
+				$objSaveCredits = User_Credits::find($pointsTransferer->id);
+				$objSaveCredits->points = $objSaveCredits->points - $credit_points;
+				$objSaveCredits->update_date =  Carbon::now();			
+				$objSaveCredits->save();
+				
+			
+				//Credit points to user
+				$objSaveUser = new User_Credits_History;
+				$objSaveUser->user_id = $winnerUser->user_id;				
+				$objSaveUser->points_amt = $credit_points;				
+				$objSaveUser->type = env('CREDIT');
+				$objSaveUser->transaction_ref = "TRN-". DB::table('user_credits_history')->max('id');
+				$objSaveUser->transaction_desc = "Winning points transfered by Franchisee ".$pointsTransferer->name;
+				$objSaveUser->created_date =  Carbon::now();	
+				$objSaveUser->save();
+				
+				$objSaveCreditsUser = User_Credits::find($winnerUser->user_id);
+				$objSaveCreditsUser->points = $objSaveCreditsUser->points + $credit_points;			
+				$objSaveCreditsUser->update_date =  Carbon::now();			
+				$objSaveCreditsUser->save();				
+			}
+			
+			
+			Betting_Current::truncate();
+		
+			return Response::json(['status'=>200,'message' => "Betting is Completed"]);
+		}else{
+			return Response::json(['status'=>400,'message' => "Betting is not Completed"]);
+		}
+			
 	}
 }
 	

@@ -28,6 +28,7 @@ Route::get('/getCurrentSystemTime', 'UserController@getCurrentSystemTime');
 Route::post('/lockFinaleBetting', 'UserController@postBattingItems');
 Route::post('/bettingOver', 'UserController@bettingOver');
 Route::post('/credits_request_cutsomer', 'UserController@requestCredits');	
+Route::get('/cronBettingWinner', 'UserController@cronBettingWinner');	
 
 //Admin and Franchisee Logins Route Methods
 Route::group(['middleware' => ['auth', 'validateBackHistory']], function () {
